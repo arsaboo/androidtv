@@ -284,9 +284,9 @@ class AndroidTVDevice(MediaPlayerDevice):
             self._state = STATE_OFF
         elif self._androidtv.state == 'idle':
             self._state = STATE_IDLE
-        elif self._androidtv.state == 'play':
+        elif self._androidtv.state == 'playing':
             self._state = STATE_PLAYING
-        elif self._androidtv.state == 'pause':
+        elif self._androidtv.state == 'paused':
             self._state = STATE_PAUSED
         elif self._androidtv.state == 'standby':
             self._state = STATE_STANDBY
