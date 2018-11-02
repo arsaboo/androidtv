@@ -101,12 +101,18 @@ ACTIONS = {
 }
 
 KNOWN_APPS = {
+    "adultswim": "Adult Swim",
+    "crackle": "Crackle",
+    "crunchyroll": "Crunchyroll",
     "dream": "Screensaver",
+    "fxnow": "FXNOW",
+    "hulu": "Hulu",
     "kodi": "Kodi",
     "netflix": "Netflix",
     "plex": "Plex",
     "spotify": "Spotify",
     "tvlauncher": "Homescreen",
+    "xfinity": "Xfinity Stream",
     "youtube": "Youtube"
 }
 
