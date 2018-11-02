@@ -272,8 +272,6 @@ class AndroidTVDevice(MediaPlayerDevice):
         self._name = name
         self._state = STATE_UNKNOWN
         self._app_name = None
-        # self._running_apps = None
-        # self._current_app = None
 
     @adb_wrapper
     def update(self):
