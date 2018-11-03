@@ -102,6 +102,7 @@ ACTIONS = {
 
 KNOWN_APPS = {
     "adultswim": "Adult Swim",
+    "android.videos": "Play Movies",
     "crackle": "Crackle",
     "crunchyroll": "Crunchyroll",
     "dream": "Screensaver",
@@ -353,64 +354,78 @@ class AndroidTVDevice(MediaPlayerDevice):
         """Flag media player features that are supported."""
         return SUPPORT_ANDROIDTV
 
+    @adb_wrapper
     def turn_on(self):
         """Instruct the tv to turn on."""
         self._androidtv.turn_on()
 
+    @adb_wrapper
     def turn_off(self):
         """Instruct the tv to turn off."""
         self._androidtv.turn_off()
 
+    @adb_wrapper
     def media_play(self):
         """Send play command."""
         self._androidtv.media_play()
         self._state = STATE_PLAYING
 
+    @adb_wrapper
     def media_pause(self):
         """Send pause command."""
         self._androidtv.media_pause()
         self._state = STATE_PAUSED
 
+    @adb_wrapper
     def media_play_pause(self):
         """Send play/pause command."""
         _LOGGER.info("Attempting to send play/pause command")
         self._androidtv.media_play_pause()
 
+    @adb_wrapper
     def media_stop(self):
         """Send stop command."""
         self._androidtv.media_stop()
         self._state = STATE_IDLE
 
+    @adb_wrapper
     def mute_volume(self, mute):
         """Mute the volume."""
         self._androidtv.mute_volume()
         self._androidtv.muted = mute
 
+    @adb_wrapper
     def volume_up(self):
         """Increment the volume level."""
         self._androidtv.volume_up()
 
+    @adb_wrapper
     def volume_down(self):
         """Decrement the volume level."""
         self._androidtv.volume_down()
 
+    @adb_wrapper
     def media_previous_track(self):
         """Send previous track command."""
         self._androidtv.media_previous()
 
+    @adb_wrapper
     def media_next_track(self):
         """Send next track command."""
         self._androidtv.media_next()
 
+    @adb_wrapper
     def input_key(self, key):
         """Input the key to the device."""
         self._androidtv._key(key)
 
+    @adb_wrapper
     def start_intent(self, uri):
         """Start an intent on the device."""
         self._androidtv._adb.Shell(
             "am start -a android.intent.action.VIEW -d {}".format(uri))
 
+    @adb_wrapper
     def do_action(self, action):
         """Input the key corresponding to the action."""
         self._androidtv._adb.Shell("input keyevent {}".format(ACTIONS[action]))
